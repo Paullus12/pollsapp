@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Заполненные анкеты</title>
+</head>
+<body>
+    
+{% if stud.count > 0 %}
+    <h2>Список студентов</h2>
+    <table>
+        <tr><th>Id</th><th>Фамилия</th><th>Имя</th></tr>
+        {% for person in stud %}
+        <tr><td>{{ person.id }}</td><td>{{ person.name }}</td><td>{{ person.surname }}</td><td>{{ person.group }}</td><td>{{ person.language}}</td><td>{{ person.expirience }}</td><td>{{ person.work }}</td><td>{{ person.wwork }}</td></tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</body>
+</html>
+

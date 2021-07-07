@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Заполнение анкеты</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+</head>
+<body class="container">
+    {% block bar %}
+        <div class="container">
+    <header class="d-flex justify-content-center py-3">
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="{% url 'home' %}" class="nav-link" aria-current="page">Главная</a></li>
+        <li class="nav-item"><a href="{% url 'created' %}" class="nav-link active" aria-current="page">Заполнение анкеты</a>
+      </ul>
+    </header>
+  </div>
+{% endblock %}
+    <form method="POST" action="create/">
+        {% csrf_token %}
+        <p>
+            <label>Введите имя</label><br>
+            <input type="text" name="name" />
+        </p>
+        <p>
+            <label>Введите Фамилию</label><br>
+            <input type="text" name="surname" />
+        </p>
+        <p>
+            <label>Введите группу</label><br>
+            <input type="text" name="group" />
+        </p>
+        <p>
+            <select name="language">
+            <option value="1">С++</option>
+            <option value="2">С#</option>
+            <option value="3">Java</option>
+            <option value="4">Python</option>
+            </select><br>
+        </p>
+        <p>
+            <select name="expirience">
+            <option value="1">MATLAB</option>
+            <option value="2">SIMULINK</option>
+            <option value="3">STATISTICA</option>
+            <option value="4">WEB-технологии</option>
+            <option value="5">СУБД</option>
+            </select><br>
+        </p>
+
+        <p>
+            <label>Теория автоматического управления, моделирование, идентификация, оптимизация</label>
+            <select name="tema1">
+            <option value="1">Идентификация технических объектов и разработка тестовых сигналов Косинский М.Ю.</option>
+            <option value="2">Управление и диагностика технического состояния динамических объектов методами нечеткой логики Косинский М.Ю.</option>
+            <option value="3">Исследование систем стабилизации, работающих параллельно на общую нагрузку Вершинин Д.В.</option>
+            </select><br>
+        </p>
+        <p>
+            <label>Интеллектуальный анализ данных, информационно-аналитические системы, базы данных</label>
+            <select name="tema2">
+            <option value="1">Нейросетевые системы управления и их применение Косинский М.Ю.</option>
+            <option value="2">Машинное обучение и интеллектуальный анализ данных Мохов А.С.</option>
+            <option value="3">Нейросетевые методы обработки данных, включая технологии глубокого обучения Бородкин А.А., Мохов А.С. </option>
+            <option value="4">Методы распознавания образов, текста и речи Бородкин А.А., Мохов А.С.</option>
+            <option value="5">Разработка информационных систем с использованием баз данных Мохов А.С.</option>
+            </select><br>
+        </p>
+        <p>
+            <label>Микропроцессорная техника, автоматизация технологических процессов</label>
+            <select name="tema3">
+            <option value="1">Микропроцессорные и аппаратно-технические средства систем управления и автоматизации Баларев Д.А.</option>
+            <option value="2">Разработка систем диспетчеризации (SCADA-системы) Баларев Д.А.</option>
+            </select><br>
+        </p>
+        <p>
+            <label>Робототехнические комплексы</label>
+            <select name="tema4">
+            <option value="1">Разработка моделей систем управления роботов-манипуляторов в среде Matlab Шилин Д.В.</option>
+            <option value="2">Проектирование пневматических и гидравлических схем управления Шилин Д.В.</option>
+            </select><br>
+        </p>
+        <p>
+            <label>Работаете ли Вы в настоящее время? Планируете ли трудоустроиться по специальности </label>
+            <select name="work">
+            <option value="1">да, работаю (по специальности / не по специальности)</option>
+            <option value="2">планирую трудоустроиться в ближайшее время (до окончания института)</option>
+            <option value="3">планирую трудоустроиться после защиты бакалаврской работы</option>
+            <option value="4">не планирую работать по специальности</option>
+            </select><br>
+
+            <label>Если работаете, укажите место работы</label><br>
+            <input type="text" name="wwork" />
+        
+        </p>
+
+        <p>
+            <label>Введите дополнительную информацию о себе, которую считаете важной</label><br>
+            <input type="text" name="info" />
+        </p>
+        <input type="submit" value="Сохранить" >
+    </form>
+    
+</body>
+</html>
